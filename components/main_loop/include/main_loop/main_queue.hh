@@ -1,5 +1,5 @@
 /**
- * \file  main_loop/main_queue.h
+ * \file  main_loop/main_queue.hh
  * \brief Execute functions from main task
  */
 
