@@ -1,4 +1,6 @@
-##  mbed-mainloop  - A message queue to execute functions in main-task context
+###  mbed-mainloop  - A message queue to execute functions in main-task context
+
+    See API documentation
 
 
 #### Documentation
@@ -14,3 +16,6 @@
    * ESP-IDF Project which uses this lib: [tronferno-mcu](https://github.com/zwiebert/tronferno-mcu.git)
    * ESP-IDF+STM32 Project which uses this lib: [rv garden irrigation](https://github.com/zwiebert/irrigation_control.git)
 
+### Todo
+   * All API-functions should have a `_from_isr` variant.
+   * Add args to the callback function
