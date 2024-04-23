@@ -2,7 +2,7 @@
 
 
 #### Documentation
-   *  View [API documentation](https://zwiebert.github.io/main-loop/api) 
+   *  View [API documentation](https://zwiebert.github.io/mbed-mainloop/api) 
    *  Create and view API documentation `make doxy-api-view`
    *  Crate and view source documentation `make doxy-dev-view`
 
