@@ -3,9 +3,9 @@
 
 
 #### Documentation
-   *  View [API documentation](https://zwiebert.github.io/main-loop) 
-   *  Create API documentation `make doxy-api-view`
-   *  Crate source documentation `make doxy-dev-view`
+   *  View [API documentation](https://zwiebert.github.io/main-loop/api) 
+   *  Create and view API documentation `make doxy-api-view`
+   *  Crate and view source documentation `make doxy-dev-view`
 
 #### Testing  
    *  `make host-test-all`  configure, build and runs all tests
