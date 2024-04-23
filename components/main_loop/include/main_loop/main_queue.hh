@@ -19,41 +19,45 @@ bool mainLoop_setup(unsigned queue_length, void *event_group = 0, unsigned event
 
 /**
  * \brief            Process some  or all messages in queue
+ * \note             Should be periodically from main task
  * \param max_count  number of messages to process (0 for all)
- * \time_out_ms      Duration to block if called on an empty queue
+ * \time_out_ms      Duration in milliseconds to block. Blocking will only happen on an empty queue.
  * \return           number of messages processed
  */
 unsigned mainLoop_processMessages(unsigned max_count = 0, unsigned time_out_ms = 0);
 
 /**
- * \brief            Call a function from main task. Should normally be called from other tasks.
+ * \brief            Ask to execute a function in main task
+ * \note             Should be called from some task.
  * \return           success
  */
 bool mainLoop_callFun(voidFunT fun);
 
 /**
- * \brief            Call a function from main task. Should be called from interrupt.
+ * \brief            Ask to execute a function in main task
+ * \note             Should be called from interrupt
  * \return           success
  */
 bool mainLoop_callFun_fromISR(voidFunT fun);
 
 /**
- * \brief           Call a function from main task with delay or periodic. Should normally be called from other tasks.
- * \param delay_ms  Delay and/or period in ms
+ * \brief           Ask to execute a function in main task delayed or periodically
+ * \note            Should be called from some task.
+ * \param delay_ms  Delay and/or period in milliseconds
  * \param periodic  if true, call the function periodic. the first call is delayed
- * \return          handle of the delay timer (needed to stop a periodic timer). NULL means failure.
+ * \return          timer handle if succeeded, NULL if failed
  */
 void *mainLoop_callFunByTimer(voidFunT fun, unsigned delay_ms, bool periodic = false);
 /**
- * \brief           Stop a periodic function call
- * \param tmr       Handle to timer, as returned by mainLoop_callFun.  Or NULL.
+ * \brief           Stop a periodic function call initiated by @ref mainLoop_callFunByTimer
+ * \param tmr       timer handle returned by @ref mainLoop_callFunByTimer (NULL is safe  to pass)
  * \return          success
  */
 bool mainLoop_stopFun(void *tmr, bool delete_timer = true);
 
 /**
- * \brief           Restart MCU from main task.
- * \param delay_ms delay before restart occurs
+ * \brief           Ask to restart MCU from main task.
+ * \param delay_ms  delay in milliseconds before restart occurs
  * 
  */
 void mainLoop_mcuRestart(unsigned delay_ms);

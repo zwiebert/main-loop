@@ -1,5 +1,4 @@
-##  main-loop
-
+##  mbed-mainloop  - A message queue to execute functions in main-task context
 
 
 #### Documentation
